@@ -1,25 +1,20 @@
+// src/App.jsx
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './Componente/Navbar';
-import Inicio from './pages/inicio';
-import MisCompaneros from './pages/MisCompaneros';
-import Registro from './pages/Registro';
+import Inicio from './pages/Inicio';
+import PostsPage from './pages/Postpage';
+import CreatePostPage from './pages/CreatePostPage';
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <div className="min-h-screen bg-gray-100">
-        <Navbar />
-        <main className="container mx-auto p-4">
-          <Routes>
-            <Route path="/" element={<Inicio />} />
-            <Route path="/inicio" element={<Inicio />} />
-            <Route path="/mis-companeros" element={<MisCompaneros />} />
-            <Route path="/registro" element={<Registro />} />
-            <Route path="/registrarme" element={<Registro />} />
-          </Routes>
-        </main>
-      </div>
-    </BrowserRouter>
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Inicio />} />
+        <Route path="/posts" element={<PostsPage />} />
+        <Route path="/posts/crear" element={<CreatePostPage />} />
+      </Routes>
+    </Router>
   );
-}
+} 
